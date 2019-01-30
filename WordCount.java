@@ -1,4 +1,3 @@
-//Jesús Antonio González Cárdenas 15007349
 import java.util.Scanner;
 public class WordCount
 {   static Scanner s = new Scanner(System.in);
