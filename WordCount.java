@@ -17,6 +17,7 @@ System.out.println("4 - Contar Digitos");
 System.out.println("5 - Contar Caracteres especiales");
 System.out.println("6 - Contar Letras y mostrar la cantidad de vocales y consonantes");
 System.out.println("7 - Contar Palabras con primera letra vocal");
+System.out.println("8 - Mandar a ROT13");
 menu = s.nextLine();   
 switch(menu){
 case "1":
@@ -40,7 +41,10 @@ break;
 case "7":
 Woosh.FirstLettVoc(word);
 break;
-case "8":
+case"8":
+Woosh.ROT13IN(word);
+break;
+case "9":
 salir = true;
 break;
 
@@ -180,4 +184,40 @@ for (int i = 0; i < str1.length(); i++) {
         }
         System.out.println("Hay " +flvocal+ " primeras letras vocales en el texto procesado");
     }
+  public void ROT13IN(String words){
+    String str1 = words;
+    int arr = str1.length();
+    char[] charArray = str1.toCharArray();
+    String output = "";
+    char move = ' ';
+ char[] alphabets = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r',
+'s', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
+   for(int i = 0; i<charArray.length;i++){
+       charArray[i] = Character.toLowerCase(charArray[i]);
+    if(charArray[i] >= 'a' && charArray[i] <= 'm'){
+         for(int ii = 0; i<=12;ii++){
+            if(alphabets[ii] == charArray[i]){
+            move = alphabets[ii+13];
+            output += move;
+            break;
+        }
+            
+            }
+  }
+    else if(charArray[i] >= 'n'&& charArray[i] <= 'z'){
+    for(int ii = 0; i<=25;ii++){
+            if(alphabets[ii] == charArray[i]){
+            move = alphabets[ii-13];
+            output += move;
+            break;
+        }
+            
+            }}
+    else{move = charArray[i];
+        output += move;
+}
+  }
+ System.out.println("ROT13 =  " +output);
+
+}
 }
